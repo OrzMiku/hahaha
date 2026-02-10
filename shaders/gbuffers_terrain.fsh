@@ -5,12 +5,14 @@
 #include "/libs/Utilities.glsl"
 
 in vec2 texCoord;
+in vec2 lmCoord;
 in vec3 vNormal;
 in vec4 vColor;
 
 /* RENDERTARGETS: 0,1,2 */
 layout(location = 0) out vec4 fragColor;
 layout(location = 1) out vec4 encodedNormal;
+layout(location = 2) out vec2 lmData;
 
 void main() {
   fragColor = texture(gtexture, texCoord) * vColor;
@@ -19,4 +21,5 @@ void main() {
   }
   fragColor.a = vColor.a;
   encodedNormal = vec4(vNormal * 0.5 + 0.5, 1.0);
+  lmData = lmCoord;
 }

@@ -6,6 +6,11 @@ uniform sampler2D colortex0;
 uniform sampler2D colortex1;
 uniform sampler2D colortex2;
 uniform sampler2D depthtex0;
+uniform sampler2D shadowtex0;
+uniform sampler2D noisetex;
+uniform vec2 pixelSize;
+uniform vec2 screenSize;
+uniform mat4 gbufferProjectionInverse;
 #endif
 
 #if defined(GBUFFER_SHADER) || defined(SHADOW_SHADER)
@@ -21,4 +26,6 @@ uniform mat4 projectionMatrix;
 uniform mat4 textureMatrix;
 uniform mat4 gbufferModelView;
 uniform mat4 gbufferModelViewInverse;
+uniform mat4 shadowModelView;
+uniform mat4 shadowProjection;
 #endif
