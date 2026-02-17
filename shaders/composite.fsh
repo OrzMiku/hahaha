@@ -47,7 +47,7 @@ void main() {
     vec4 albedo = texture(colortex0, texCoord);
     albedo.rgb = pow(albedo.rgb, vec3(2.2));
 
-    vec3 normal = texture(colortex1, texCoord).xyz * 2.0 - 1.0;
+    vec3 normal = texture(colortex1, texCoord).xyz;
     vec2 lmData = texture(colortex2, texCoord).rg;
 
     vec3 lightDir = normalize(mat3(gbufferModelViewInverse) * shadowLightPosition);
