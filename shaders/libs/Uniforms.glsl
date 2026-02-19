@@ -5,6 +5,7 @@
 uniform sampler2D colortex0;
 uniform sampler2D colortex1;
 uniform sampler2D colortex2;
+uniform isampler2D colortex3;
 uniform sampler2D depthtex0;
 uniform sampler2D shadowtex0;
 uniform sampler2D noisetex;
@@ -20,6 +21,7 @@ uniform sampler2D lightmap;
 uniform float alphaTestRef;
 uniform vec3 chunkOffset;
 uniform vec3 shadowLightPosition;
+uniform vec4 entityColor;
 uniform mat3 normalMatrix;
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;

@@ -11,4 +11,11 @@ const float shadowDistance = 64; // [16 32 64 128]
 #define SHADOW_RADIUS 4 // [0 1 2 3 4 5 6 7 8 9 10]
 #define SHADOW_RANGE 4 // [0 2 4 6 8 10 12 14 16 18 20]
 
+/*
+const int colortex0Format = RGBA16F;
+const int colortex1Format = RGB16_SNORM;
+const int colortex2Format = RG16;
+const int colortex3Format = R8UI;
+*/
+
 #endif

@@ -39,12 +39,19 @@ vec3 getSoftShadow(vec4 shadowClipPos, float dotNL) {
 }
 
 void main() {
+
     float depth = texture(depthtex0, texCoord).r;
     if(depth >= 1.0) {
         discard;
     }
 
     vec4 albedo = texture(colortex0, texCoord);
+    int geoID = texture(colortex3, texCoord).r;
+    if(geoID == 2) { 
+        fragColor = albedo;
+        return;
+    }
+    
     albedo.rgb = pow(albedo.rgb, vec3(2.2));
 
     vec3 normal = texture(colortex1, texCoord).xyz;

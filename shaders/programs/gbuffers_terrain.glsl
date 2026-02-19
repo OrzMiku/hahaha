@@ -31,16 +31,11 @@ in VS_OUT {
   in vec4 color;
 } fs_in;
 
-/*
-const int colortex0Format = RGBA16F;
-const int colortex1Format = RGB16_SNORM;
-const int colortex2Format = RG16;
-*/
-
-/* RENDERTARGETS: 0,1,2 */
+/* RENDERTARGETS: 0,1,2,3 */
 layout(location = 0) out vec4 fragColor;
 layout(location = 1) out vec4 normal;
 layout(location = 2) out vec2 lmData;
+layout(location = 3) out int geoID;
 
 void main() {
   fragColor = texture(gtexture, fs_in.texcoord) * fs_in.color;
@@ -50,6 +45,14 @@ void main() {
   fragColor.a = fs_in.color.a;
   normal = vec4(fs_in.normal, 1.0);
   lmData = fs_in.lmcoord;
+  #ifdef GBUFFERS_ENTITIES
+  fragColor.rgb = mix(fragColor.rgb, entityColor.rgb, entityColor.a);
+  if(fs_in.color.a < 0.9) {
+    geoID = 2;
+  } else {
+    geoID = 1;
+  }
+  #endif
 }
 
 #endif
